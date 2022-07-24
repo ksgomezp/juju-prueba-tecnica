@@ -1,0 +1,16 @@
+<div class="card text-white bg-dark mb-3">
+            
+    <div class="card-header"> {{personaje.name}}</div>
+    <img [src]="personaje.image" [alt]="personaje.name" class="card-img-top">
+
+    <div class="card-body">
+        <p class="card-text">
+            <strong>Estado: </strong>{{personaje.status}}
+            <br>
+            <strong>Especie: </strong>{{personaje.species}}
+            <br>
+            <strong>Origen: </strong>{{personaje.origin.name}}
+        </p>
+    </div>
+    <button [routerLink]="['/personajes', personaje.id]" class="btn btn-light">Ver más...</button>
+</div>
