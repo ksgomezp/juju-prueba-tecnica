@@ -4,7 +4,7 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 ## CLonar repositorio
 
-Ir a la terminal de preferencia y ejecutar `git clon https://github.com/ksgomezp/juju-prueba-tecnica.git`.
+Ir a la terminal de preferencia y ejecutar `git clone https://github.com/ksgomezp/juju-prueba-tecnica.git`.
 
 ## Node Modules
 
