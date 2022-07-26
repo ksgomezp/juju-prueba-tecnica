@@ -1,12 +1,15 @@
 <div class="row">
 
-    <div *ngFor="let personaje of personajes | paginate: { itemsPerPage: 5, currentPage: page}" class="col-xl-2 col-lg-3 col-md-4 col-sm-6" >
+    <div *ngFor="let personaje of personajes" class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mt-3">
 
         <app-card [personaje]="personaje"></app-card>
     </div>
 </div>
-<pagination-controls 
-        (pageChange)="page = $event"
-         previousLabel="Anterior"
-         nextLabel="Siguiente">
-</pagination-controls>
+
+
+<div class="pagination mb-2">
+    
+    <button type="button" class="btn btn-outline-primary" (click)="pageChanged(-1)">Anterior</button>
+    <button type="button" class="btn btn-outline-primary" (click)="pageChanged(1)">Siguiente</button>
+
+</div>

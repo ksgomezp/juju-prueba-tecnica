@@ -11,9 +11,6 @@ export class PersonajesService {
 
   personajes: Personaje[] = [];
 
-  status: string = '';
-  gender: string = '';
-
   private _historial: string[] = [];
 
   get historial() {
@@ -28,8 +25,8 @@ export class PersonajesService {
     this.personajes = JSON.parse(localStorage.getItem('personajes')!) || [];
    }
 
-  getPersonajes(status: string = '', gender: string = ''){
-    this.http.get<RickAndMortyApiResponse>(`${this.baseUrl}/character/?status=${status}&gender=${gender}`)
+  getPersonajes(status: string = '', gender: string = '', page: string = '1'){
+    this.http.get<RickAndMortyApiResponse>(`${this.baseUrl}/character/?page=${page}&status=${status}&gender=${gender}`)
         .subscribe(resp => this.personajes = resp.results);
   }
 

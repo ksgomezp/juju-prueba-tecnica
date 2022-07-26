@@ -10,10 +10,19 @@ import { PersonajesService } from '../../services/personajes.service';
 export class ResultadosComponent implements OnInit {
 
   page: number = 1;
-
+  pageSum: number = 1;
   get personajes(){
     return this.personajesService.personajes;
 
+  }
+
+  pageChanged(event: number){
+    if(this.pageSum == 1 && event == -1){
+      return;
+    }
+    this.pageSum+=event;
+    this.personajesService.getPersonajes('','', this.pageSum.toString());
+    
   }
 
   

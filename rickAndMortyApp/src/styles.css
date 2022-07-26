@@ -7,4 +7,13 @@ html, body{
     height: 100%;
     min-height: 100vh;
     min-width: 180px;
+    background-image:url(./assets/rickmorty.png);
+    background-size: 100%;
+}
+
+#thumbnail{
+    display: block;
+    width: 100%;
+    height: auto;
+    
 }
