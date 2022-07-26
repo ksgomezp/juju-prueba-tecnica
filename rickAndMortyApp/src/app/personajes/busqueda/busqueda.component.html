@@ -1,21 +1,15 @@
 <h5>Buscar: </h5>
-<input  
-type="text" 
-class="form-control" 
-placeholder="Buscar Personaje..."
-(keyup.enter)="buscar()"
-#txtBuscar
->
+<input type="text" class="form-control" placeholder="Buscar Personaje..." (keyup.enter)="buscar()" #txtBuscar>
 <nav class="navbar navbar-light bg-light ">
   <div class="col">
-    <button class="btn btn-outline-dark navButton" type="button"  (click)="genero('male')">Masculinos</button>
-    <button class="btn btn-outline-dark navButton" type="button"  (click)="genero('female')">Femeninos</button>
-    <button class="btn btn-outline-dark navButton" type="button"  (click)="genero('genderless')">Sin genero</button>
+    <button class="btn btn-outline-dark navButton" type="button" (click)="genero('male')">Masculinos</button>
+    <button class="btn btn-outline-dark navButton" type="button" (click)="genero('female')">Femeninos</button>
+    <button class="btn btn-outline-dark navButton" type="button" (click)="genero('genderless')">Sin genero</button>
     <button class="btn btn-outline-dark navButton" type="button" (click)="estado('alive')">Vivos</button>
     <button class="btn btn-outline-dark navButton" type="button" (click)="estado('dead')">Muertos</button>
   </div>
 </nav>
 
 <div *ngIf="hayError" class="alert alert-danger" role="alert">
-    No hay resultados disponibles 
-  </div>
+  No hay resultados disponibles
+</div>

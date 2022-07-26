@@ -15,27 +15,27 @@ import { PersonajesService } from '../../services/personajes.service';
 })
 export class BusquedaComponent {
 
-  @ViewChild('txtBuscar') txtBuscar!:ElementRef<HTMLInputElement>;
+  @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>;
 
-  get hayError(){
+  get hayError() {
     return this.personajesService.hayError;
   }
 
   constructor(private personajesService: PersonajesService) { }
 
-  buscar(){
-    const valor = this.txtBuscar.nativeElement.value.trim().toLocaleLowerCase();  
-    if(valor.length === 0){ return;}  
+  buscar() {
+    const valor = this.txtBuscar.nativeElement.value.trim().toLocaleLowerCase();
+    if (valor.length === 0) { return; }
     this.personajesService.filtrarPersonajes(valor);
     this.txtBuscar.nativeElement.value = '';
-    
+
   }
 
-  genero(genero:string){
-    this.personajesService.getPersonajes('',genero)
+  genero(genero: string) {
+    this.personajesService.getPersonajes('', genero)
   }
 
-  estado(estado:string){
+  estado(estado: string) {
     this.personajesService.getPersonajes(estado)
 
   }

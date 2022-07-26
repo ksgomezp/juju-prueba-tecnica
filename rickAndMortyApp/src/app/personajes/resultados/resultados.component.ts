@@ -11,21 +11,21 @@ export class ResultadosComponent implements OnInit {
 
   page: number = 1;
   pageSum: number = 1;
-  get personajes(){
+  get personajes() {
     return this.personajesService.personajes;
 
   }
 
-  pageChanged(event: number){
-    if(this.pageSum == 1 && event == -1){
+  pageChanged(event: number) {
+    if (this.pageSum == 1 && event == -1) {
       return;
     }
-    this.pageSum+=event;
-    this.personajesService.getPersonajes('','', this.pageSum.toString());
-    
+    this.pageSum += event;
+    this.personajesService.getPersonajes('', '', this.pageSum.toString());
+
   }
 
-  
+
   constructor(private personajesService: PersonajesService) { }
 
   ngOnInit(): void {

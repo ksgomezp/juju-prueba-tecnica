@@ -7,7 +7,7 @@ import { Personaje } from '../interfaces/personaje.interface';
 @Component({
   selector: 'app-personaje',
   templateUrl: './personaje.component.html'
-  
+
 })
 export class PersonajeComponent implements OnInit {
 
@@ -18,9 +18,9 @@ export class PersonajeComponent implements OnInit {
   ngOnInit(): void {
 
     this.rutaActiva.params
-    .pipe(
-        switchMap(({id}) => this.personajesService.buscarPersonaje(id))
-    ).subscribe(personaje => this.personaje = personaje);
-    }
+      .pipe(
+        switchMap(({ id }) => this.personajesService.buscarPersonaje(id))
+      ).subscribe(personaje => this.personaje = personaje);
   }
+}
 

@@ -7,15 +7,15 @@ import { PersonajesService } from 'src/app/services/personajes.service';
 })
 export class SidebarComponent implements OnInit {
 
-  get historial(){
+  get historial() {
     return this.personajesService.historial;
   }
 
-  buscar(item: string){
+  buscar(item: string) {
     this.personajesService.filtrarPersonajes(item);
   }
 
-  limpiarHistorial(){
+  limpiarHistorial() {
     localStorage.clear()
     window.location.reload()
   }

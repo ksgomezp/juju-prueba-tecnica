@@ -6,7 +6,7 @@ import { Personaje, RickAndMortyApiResponse } from '../personajes/interfaces/per
   providedIn: 'root'
 })
 export class PersonajesService {
-  
+
   baseUrl: string = 'https://rickandmortyapi.com/api';
 
   personajes: Personaje[] = [];
@@ -23,34 +23,34 @@ export class PersonajesService {
 
     this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
     this.personajes = JSON.parse(localStorage.getItem('personajes')!) || [];
-   }
-
-  getPersonajes(status: string = '', gender: string = '', page: string = '1'){
-    this.http.get<RickAndMortyApiResponse>(`${this.baseUrl}/character/?page=${page}&status=${status}&gender=${gender}`)
-        .subscribe(resp => this.personajes = resp.results);
   }
 
-  
+  getPersonajes(status: string = '', gender: string = '', page: string = '1') {
+    this.http.get<RickAndMortyApiResponse>(`${this.baseUrl}/character/?page=${page}&status=${status}&gender=${gender}`)
+      .subscribe(resp => this.personajes = resp.results);
+  }
 
-  filtrarPersonajes(termino:string){
+
+
+  filtrarPersonajes(termino: string) {
     this.hayError = false;
-    if(!(this._historial.includes(termino))){
+    if (!(this._historial.includes(termino))) {
       this._historial.unshift(termino);
-      this._historial = this._historial.splice(0,10);
+      this._historial = this._historial.splice(0, 10);
 
-      localStorage.setItem('historial',JSON.stringify(this._historial));
+      localStorage.setItem('historial', JSON.stringify(this._historial));
     }
 
     this.http.get<RickAndMortyApiResponse>(`${this.baseUrl}/character/?name=${termino}`)
-        .subscribe(resp => {
-          this.personajes = resp.results
-        }, (err) => {
-            this.hayError = true;
-            this.getPersonajes();
-        });
+      .subscribe(resp => {
+        this.personajes = resp.results
+      }, (err) => {
+        this.hayError = true;
+        this.getPersonajes();
+      });
   }
 
-  buscarPersonaje(id: string){
+  buscarPersonaje(id: string) {
     return this.http.get<Personaje>(`${this.baseUrl}/character/${id}`);
   }
 }

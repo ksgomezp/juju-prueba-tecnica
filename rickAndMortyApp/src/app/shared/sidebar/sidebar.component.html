@@ -1,14 +1,14 @@
 <div class="bg-dark border-right p-3" id="sidebar">
-    <img src="assets/title-png.png"  id="thumbnail">
+  <img src="assets/title-png.png" id="thumbnail">
 
-    <hr class="text-white">
-    <div class="list-group list-reset">
-      <a *ngFor="let item of historial" class="list-group-item list-group-item-action" (click)="buscar(item)">
-            {{item | titlecase }}
-      </a>
-    </div>
-    <div *ngIf="!(historial.length === 0)" class="list-group-item center">
-      <button class="btn btn-secondary d-block mx-auto mt-2" (click)="limpiarHistorial()">Limpiar historial</button>
-    </div>
-
+  <hr class="text-white">
+  <div class="list-group list-reset">
+    <a *ngFor="let item of historial" class="list-group-item list-group-item-action" (click)="buscar(item)">
+      {{item | titlecase }}
+    </a>
   </div>
+  <div *ngIf="!(historial.length === 0)" class="list-group-item center">
+    <button class="btn btn-secondary d-block mx-auto mt-2" (click)="limpiarHistorial()">Limpiar historial</button>
+  </div>
+
+</div>
